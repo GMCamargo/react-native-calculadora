@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,27 +7,24 @@ import {
 import Button from './components/Button'
 import Display from './components/Display';
 
-export default class App extends Component {
+export default () => {
 
-  state = {
-    displayValue: '0'
-  }
+  const [state,setState] = useState('0')
 
   clearMemory = () =>{
-    this.setState({displayValue: '0'})
+    setState('0')
   }
   addDigit = (n) => {
-    if(this.state.displayValue != '0') this.setState({ displayValue: this.state.displayValue + '' + n });
-    else this.setState({ displayValue: n })
+    if(state != '0') setState(state + n);
+    else setState(n)
   }
 
   setOperation = op =>{
     
   }
-  render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Display value={this.state.displayValue} />
+        <Display value={state} />
         <View style={styles.buttons}>
           {/* First Row*/}
           <Button label='CE' onClick = {this.clearMemory} />
@@ -35,7 +32,7 @@ export default class App extends Component {
           <Button label='<=' />
           <Button label='/' op onClick={() => this.setOperation('/')}/>
           {/* Second Row*/}
-          <Button label='7' onClick={() => this.addDigit(7)} />
+          <Button label='7' onClick={addDigit} />
           <Button label='8' onClick={() => this.addDigit(8)}/>
           <Button label='9' onClick={() => this.addDigit(9)}/>
           <Button label='*' op onClick={() => this.setOperation('*')}/>
@@ -56,7 +53,6 @@ export default class App extends Component {
         </View>
       </SafeAreaView>
     )
-  }
 
 };
 
