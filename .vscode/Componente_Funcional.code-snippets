@@ -1,0 +1,23 @@
+{
+  "Componente Funcional": {
+    "scope": "javascript",
+    "prefix": "compfunc",
+    "body": [
+      "import React from 'react'",
+      "import {Text, StyleSheet, View} from 'react-native'",
+      "",
+      "export default (props) =>{",
+      "    return (",
+      "         <Text style={style.$3}>",
+      "             $1",
+      "         </Text>",
+      "    )",
+      "}",
+      "",
+	  "const style = StyleSheet.create({",
+	  "  $2",
+      "})"
+    ],
+    "description": "Componente com um Text"
+  }
+}
